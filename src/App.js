@@ -20,11 +20,24 @@ class App extends React.Component {
     }
   }
 
+  addTask = taskName => {
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        {
+          name: taskName,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    })
+  }
+
   render() {
     return (
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList tasks={this.state.tasks} />
+        <ToDoList tasks={this.state.tasks} addTask={this.addTask}/>
       </div>
     );
   }
