@@ -4,8 +4,7 @@ class ToDoForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            taskName: '',
-            toggleCleared: props.toggleCleared
+            taskName: ''
         }        
     }
     handleChange = e => {
@@ -28,7 +27,7 @@ class ToDoForm extends React.Component {
             <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
                 <input type='text' placeholder='Enter New Task' value={this.state.taskName} onChange={this.handleChange} />
                 <button type='submit' >Add Task</button>
-                <button onClick={this.state.toggleCleared}>Clear Completed Tasks</button>
+                <button onClick={this.props.toggleCleared}>Clear Completed Tasks</button>
             </form>
         )
     }

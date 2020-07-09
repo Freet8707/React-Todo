@@ -49,7 +49,6 @@ class App extends React.Component {
   }
 
   toggleCleared = () => {
-    console.log('in the toggleCleared function')
     this.setState({
       tasks: this.state.tasks.filter(item => {
         return !item.completed
