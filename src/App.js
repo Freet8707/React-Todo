@@ -1,5 +1,6 @@
 import React from 'react';
 import ToDoList from './components/TodoList'
+import './components/Todo.css'
 
 const tasks = [
   {
@@ -33,11 +34,34 @@ class App extends React.Component {
     })
   }
 
+  toggleCompleted = itemId => {
+    this.setState({
+      tasks: this.state.tasks.map(item => {
+        if(item.id === itemId) {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        }
+        return item
+      })
+    })
+  }
+
+  toggleCleared = () => {
+    console.log('in the toggleCleared function')
+    this.setState({
+      tasks: this.state.tasks.filter(item => {
+        return !item.completed
+      })
+    })
+  }
+
   render() {
     return (
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList tasks={this.state.tasks} addTask={this.addTask}/>
+        <ToDoList tasks={this.state.tasks} addTask={this.addTask} toggleCompleted={this.toggleCompleted} toggleCleared={this.toggleCleared} />
       </div>
     );
   }

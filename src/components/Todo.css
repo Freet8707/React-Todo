@@ -1,3 +1,8 @@
+.task {
+    color: black;
+}
+
 .task.cleared {
-    text-decoration: 'underline';
+    color: lightgrey;
+    text-decoration: line-through;
 }
