@@ -7,6 +7,11 @@ const tasks = [
     name: 'heyyo',
     id: Date.now(),
     completed: false
+  }, 
+  {
+    name: 'jChan',
+    id: Date.now(),
+    completed: false
   }
 ]
 
