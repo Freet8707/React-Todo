@@ -1,16 +1,25 @@
 import React from 'react';
-import ToDoList from './components/TodoList'
+import ToDoList from './components/TodoList';
+import styled from 'styled-components'
 import './components/Todo.css'
+
+const AppDiv = styled.div`
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #eaff99;
+  padding: 0 0 30px 0;
+`;
 
 const tasks = [
   {
-    name: 'heyyo',
-    id: Date.now(),
+    name: 'complete MVP',
+    id: 12,
     completed: false
   }, 
   {
-    name: 'jChan',
-    id: Date.now(),
+    name: 'review stretch task',
+    id: 123,
     completed: false
   }
 ]
@@ -63,10 +72,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <AppDiv style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList tasks={this.state.tasks} addTask={this.addTask} toggleCompleted={this.toggleCompleted} toggleCleared={this.toggleCleared} />
-      </div>
+      </AppDiv>
     );
   }
 }

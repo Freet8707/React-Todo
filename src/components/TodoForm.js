@@ -1,4 +1,27 @@
 import React from 'react' 
+import styled from 'styled-components'
+
+const FormStyle = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+const ButtonStyle = styled.button`
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 25px;
+    align-self: center;
+    height: 40px;
+    width: 170px;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffc35b;
+    border: 2px solid #ffa100;
+    &:active {
+        background-color: #ffa100;
+        border: none;
+    }
+`;
 
 class ToDoForm extends React.Component {
     constructor(props) {
@@ -24,11 +47,11 @@ class ToDoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+            <FormStyle onSubmit={this.handleSubmit} >
                 <input type='text' placeholder='Enter New Task' value={this.state.taskName} onChange={this.handleChange} />
-                <button type='submit' >Add Task</button>
-                <button onClick={this.props.toggleCleared}>Clear Completed Tasks</button>
-            </form>
+                <ButtonStyle type='submit' >Add Task</ButtonStyle>
+                <ButtonStyle onClick={this.props.toggleCleared}>Clear Completed Tasks</ButtonStyle>
+            </FormStyle>
         )
     }
 }

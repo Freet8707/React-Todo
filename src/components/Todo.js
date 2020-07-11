@@ -9,10 +9,11 @@ const ToDo = props => {
 
     return (
         <div
+            style={{cursor: 'pointer'}}
             onClick={handleClick}
             className={`task${props.item.completed ? " cleared" : ""}`}
         >
-          <p>{props.item.name}</p>  
+          <p style={{fontSize: '16px'}}>{props.item.name}</p>  
         </div>
     )
 }
